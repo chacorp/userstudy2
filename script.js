@@ -1,7 +1,7 @@
 let referenceVideos = null;  // reference.csv 데이터를 한 번만 로드하도록 설정
 let generatedVideos = [];    // videos.csv에서 불러온 데이터 저장
 let currentIndex = 0;
-let googleScriptURL = localStorage.getItem("googleScriptURL") || ""; // 🔥 `let`으로 변경
+let googleScriptURL = localStorage.getItem("googleScriptURL") || "";
 let referenceImages = {};
 
 let isInitialized = false; 
@@ -9,7 +9,6 @@ let userResponses = {};
 
 // 특정 키워드 목록 (EC, DE, AE, BE, EB 등)
 const keywords = ["AE", "BE", "CE", "DE", "EA", "EB", "EC", "ED"];
-
 
 // CSV 파일을 읽어 JSON으로 변환하는 함수
 async function loadCSV(file) {
@@ -28,17 +27,17 @@ async function loadCSV(file) {
 
 async function initializeData() {
     if (isInitialized) {
-        console.log("⚠️ [INFO] initializeData()가 이미 실행되었음. 재실행 방지.");
-        return; // 🔥 이미 실행되었다면 다시 실행되지 않도록 차단
+        console.log("[INFO] initializeData() called");
+        return; 
     }
 
-    console.log("📌 [INFO] 데이터 로딩 시작...");
+    console.log("[INFO] loading data ...");
     isInitialized = true;
     
     userResponses = {};
 
     if (!referenceVideos) {
-        console.log("📌 [INFO] reference.csv 데이터 로딩...");
+        console.log("[INFO] loading reference.csv ...");
         const refData = await loadCSV("reference.csv"); 
         referenceVideos = {};
         refData.forEach(video => {
@@ -46,11 +45,9 @@ async function initializeData() {
                 referenceVideos[video.title.trim()] = video["Embedded link"].trim();
             }
         });
-        // console.log("[INFO] referenceVideos 로드 완료:", referenceVideos);
     }
 
-    // ref-image.csv 로드 & Google Drive 이미지 URL 변환
-    console.log("📌 [INFO] ref-image.csv 데이터 로딩...");
+    console.log("[INFO] loading ref-image.csv ...");
     const refImageData = await loadCSV("ref-image.csv");
     let referenceImages = {};
     refImageData.forEach(image => {
@@ -58,7 +55,6 @@ async function initializeData() {
             referenceImages[image.title.trim()] = image["root link"].trim();
         }
     });
-    // console.log("[INFO] referenceImages 로드 완료:", referenceImages);
 
     const genData = await loadCSV("videos.csv");
     generatedVideos = [];
@@ -72,7 +68,7 @@ async function initializeData() {
         const mode = video.Mode.trim();
         const task = video.task.trim();
         const tgt = video.tgt.trim();
-        const videoKey = `${mode}-${title}-${task}-${tgt}`; // 🔥 고유 Key 생성
+        const videoKey = `${mode}-${title}-${task}-${tgt}`;
 
         const embeddedLink = video["Embedded link"].trim();
 
@@ -80,7 +76,7 @@ async function initializeData() {
         let referenceLink = referenceVideos[referenceTitle] || "";
         // let referenceImage = referenceImages[tgt] || ""; 
         let referenceImage = (`${task}` === "reenact") ? referenceImages[tgt] : referenceImages[title];
-        console.log(`📌 [INFO] ${task} tgt: ${tgt}: title ${title} -> ${referenceImages[tgt]} | `);
+        console.log(`[INFO] ${task} tgt: ${tgt}: title ${title} -> ${referenceImages[tgt]} | `);
         
         if (!userResponses[videoKey]) {
             userResponses[videoKey] = { motion: "none", sync: "none", appearance: "none" };
@@ -95,11 +91,11 @@ async function initializeData() {
         currentIndex = 0;
         updateVideo();
     } else {
-        console.error("[ERROR] 로드된 비디오가 없습니다!");
+        console.error("[ERROR] no video loaded!");
     }
 
     localStorage.setItem("generatedVideos", JSON.stringify(generatedVideos));
-    console.log("[INFO] 총", generatedVideos.length, "개의 비디오 데이터가 로드됨");
+    console.log("[INFO] loaded ! total", generatedVideos.length, "videos");
 }
 
 function shuffleArray(array) {
@@ -113,13 +109,8 @@ function updateChoice(questionIndex, choice) {
     if (generatedVideos.length === 0) return;
     
     const videoData = generatedVideos[currentIndex];
-    const videoKey = videoData.videoKey; // 🔥 `${Mode}-${title}` 사용
+    const videoKey = videoData.videoKey; 
 
-    // if (!userResponses[videoKey]) {
-    //     userResponses[videoKey] = { motion: "none", sync: "none", appearance: "none" };
-    // }
-
-    // 🔹 같은 질문에서 하나만 선택할 수 있도록 처리
     if (questionIndex === 1) {
         userResponses[videoKey].motion = choice;
         document.getElementById("motionA").checked = (choice === 'A');
@@ -134,7 +125,7 @@ function updateChoice(questionIndex, choice) {
         document.getElementById("appearanceB").checked = (choice === 'B');
     }
 
-    console.log(`✅ [INFO] ${videoKey} - Q${questionIndex}: ${choice}`);
+    console.log(`[INFO] ${videoKey} - Q${questionIndex}: ${choice}`);
 }
 
 
@@ -144,20 +135,20 @@ function saveGoogleScriptURL() {
     const inputURL = document.getElementById("googleScriptURL").value.trim();
     
     if (!inputURL.startsWith("https://script.google.com/macros/s/")) {
-        alert("🚨 올바른 Google Apps Script URL을 입력하세요!");
+        alert("🚨 Enter appropreate Google Apps Script URL!");
         return;
     }
 
-    googleScriptURL = inputURL;  // ✅ 이제 정상적으로 값 변경 가능
+    googleScriptURL = inputURL; 
     localStorage.setItem("googleScriptURL", googleScriptURL);
-    alert("✅ Google Script URL이 저장되었습니다!");
+    alert("Google Script URL!");
 }
 
 // title에서 키워드 다음의 단어 찾기
 function findReferenceTitle(title) {
-    let trimmedTitle = title.trim(); // 앞뒤 공백 제거
+    let trimmedTitle = title.trim();
 
-    // 🔹 referenceVideos 객체에서 해당 title이 있는지 확인
+    // referenceVideos 객체에서 해당 title이 있는지 확인
     if (trimmedTitle in referenceVideos) {
         return trimmedTitle;
     }
@@ -171,7 +162,7 @@ function changeVideo(direction) {
 
     //checking checks!
     if (!isAllChecked()) {
-        alert("🚨 모든 질문에 응답하셔야 다음 페이지로 이동할 수 있습니다!");
+        alert("🚨 You need to answer to all questions!!");
         return;
     }
 
@@ -194,7 +185,7 @@ function resetCheckboxes() {
     document.getElementById("appearanceB").checked = false;
 }
 
-// 처음으로 버튼 클릭 시 첫 영상으로 이동
+
 function restartVideos() {
     if (generatedVideos.length === 0) return;
 
@@ -205,13 +196,13 @@ function restartVideos() {
 
 function updateVideo() {
     if (generatedVideos.length === 0) {
-        console.error("❌ [ERROR] 업데이트할 비디오가 없습니다!");
+        console.error("[ERROR] no video more to move on!");
         return;
     }
 
     // get video
     const videoData = generatedVideos[currentIndex];
-    const videoKey = videoData.videoKey; // `${Mode}-${title}` 사용
+    const videoKey = videoData.videoKey;
     const titleElement = document.getElementById("videoTitle");
     const generatedVideoFrame = document.getElementById("generatedVideo");
 
@@ -222,13 +213,13 @@ function updateVideo() {
 
     titleElement.textContent = (videoData.task === "reenact") ? `${num} Reenact task` : `${num} Dubbing task`;
     generatedVideoFrame.src = videoData.generatedLink;
-    generatedVideoFrame.allow = "autoplay; controls; loop; playsinline"; // allow 속성 적용
+    generatedVideoFrame.allow = "autoplay; controls; loop; playsinline";
 
     const referenceVideoFrame = document.getElementById("referenceVideo");
     // const referenceSection = document.getElementById("referenceSection");
 
     referenceVideoFrame.src = videoData.referenceLink;
-    referenceVideoFrame.allow = "autoplay; controls; loop; playsinline"; // allow 속성 적용
+    referenceVideoFrame.allow = "autoplay; controls; loop; playsinline";
 
     const referenceImage = document.getElementById("referenceImage");
     // if (videoData.task === "reenact" && videoData.referenceImage) {
@@ -248,7 +239,6 @@ function updateVideo() {
     if (homeBtn) homeBtn.style.display = currentIndex === generatedVideos.length - 1 ? "inline-block" : "none";
 
     resetCheckboxes();
-    // 🔹 페이지 전환 시 스크롤을 맨 위로 이동
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -262,28 +252,10 @@ function isAllChecked() {
 
 
 
-// function saveResponsesToGoogleSheets() {
-//     if (!googleScriptURL) {
-//         alert("🚨 Google Apps Script URL을 입력하세요!");
-//         return;
-//     }
-
-//     fetch(googleScriptURL, {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(userResponses)
-//     })
-//     .then(response => response.text())
-//     .then(data => {
-//         console.log("✅ 응답 저장 완료:", data);
-//         alert("설문 응답이 저장되었습니다!");
-//     })
-//     .catch(error => console.error("❌ 오류 발생:", error));
-// }
 function saveResponsesToGoogleSheets() {
     //// 왜인지 모르겠는데 API 안됨 ... 무조건 복사.... 
     // if (!googleScriptURL) {
-    //     alert("🚨 Google Apps Script URL을 입력하세요!");
+    //     alert("Enter proper Google Apps Script URL!");
     //     return;
     // }
     // fetch(googleScriptURL, {
@@ -303,17 +275,16 @@ function saveResponsesToGoogleSheets() {
     showFailureMessage();
 }
 function showFailureMessage() {
-    const failedData = JSON.stringify(userResponses, null, 2); // 🔥 JSON 데이터를 보기 쉽게 변환
+    const failedData = JSON.stringify(userResponses, null, 2);
 
-    alert("🚨 오우 쉩! Google Sheets 전송에 쉴패했습니다!\n\n" +
-          "⚠️ 직접 복사하여 메시지로 보내주세요.\n\n" +
-          "📋 확인 버튼을 누르면 데이터가 json 형식으로 클립보드에 복사됩니다.");
+    // alert("🚨 오우 쉩! Google Sheets 전송에 쉴패했습니다!\n\n" +
+    //       "⚠️ 직접 복사하여 메시지로 보내주세요.\n\n" +
+    //       "📋 확인 버튼을 누르면 데이터가 json 형식으로 클립보드에 복사됩니다.");
 
     // 🔹 실패한 데이터를 클립보드에 자동 복사
     copyToClipboard(failedData);
-    
-    console.log("📌 [INFO] 실패한 응답 데이터:", failedData);
 }
+
 function copyToClipboard(text) {
     const textarea = document.createElement("textarea");
     textarea.value = text;
@@ -321,7 +292,7 @@ function copyToClipboard(text) {
     textarea.select();
     document.execCommand("copy");
     document.body.removeChild(textarea);
-    alert("📋 데이터가 클립보드에 복사되었습니다!\n\n이제 직접 붙여넣어서 보내주세요.");
+    alert("📋 Data is copied to your clipboard!!\n\nNow you can cpoy and paste the result.");
 }
 
 
@@ -342,7 +313,7 @@ function checkCompletionAndShowResults() {
     for (const videoKey in userResponses) {
         const response = userResponses[videoKey];
         console.log(`response: ${response}`);
-        // 🔹 응답이 없을 경우 기본값 "Not Answered" 표시
+        // 응답이 없을 경우 기본값 "Not Answered" 표시
         const motion = response.motion ? response.motion : "Not Answered";
         const sync = response.sync ? response.sync : "Not Answered";
         const appearance = response.appearance ? response.appearance : "Not Answered";
@@ -361,13 +332,13 @@ function checkCompletionAndShowResults() {
 
     document.getElementById("resultsContainer").innerHTML = resultsHTML;
     document.getElementById("resultsContainer").style.display = "block";
-    document.getElementById("submitSurveyBtn").style.display = "block"; // 🔥 Google Sheets 전송 버튼 표시
-    console.log("[INFO] 모든 결과 표시.");
+    document.getElementById("submitSurveyBtn").style.display = "block";
+    console.log("[INFO] show result.");
 }
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("📌 [INFO] DOMContentLoaded 이벤트 발생 - initializeData 실행");
+    console.log("[INFO] DOMContentLoaded ! - call initializeData() ");
     initializeData();
 });
