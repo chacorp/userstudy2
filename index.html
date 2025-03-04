@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 id="videoTitle">User Study</h1>
+        
+        <div id="urlInputSection">
+            <label for="googleScriptURL">📌 Google Apps Script URL 입력:</label>
+            <input type="text" id="googleScriptURL" placeholder="API Key" style="width: 20%;">
+            <button onclick="saveGoogleScriptURL()">저장</button>
+        </div>
+    
+        <h3>Reference Video</h3>
+        <div class="video-container reference">
+            <iframe id="referenceVideo" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+
+        <h3>Generated Video</h3>
+        <div class="video-container generated">
+            <iframe id="generatedVideo" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+
+
+        <div>
+            <h3>Q-1. Which video shows the motion & expression similar to the reference video?</h3>
+            <label><input type="checkbox" id="motionA" onchange="updateChoice(1, 'A')"> A (left video)</label>
+            <label><input type="checkbox" id="motionB" onchange="updateChoice(1, 'B')"> B (right video)</label>
+        </div>
+        
+        <div>
+            <h3>Q-2.Which video synchronizess lip movement accurately with the audio?</h3>
+            <label><input type="checkbox" id="syncA" onchange="updateChoice(2, 'A')"> A (left video)</label>
+            <label><input type="checkbox" id="syncB" onchange="updateChoice(2, 'B')"> B (right video)</label>
+        </div>
+        
+        <h3>Reference Image</h3>
+        <div class="image-container">
+            <img id="referenceImage" src="" alt="Reference Image" style="display: none;">
+        </div>
+        
+        <div>
+            <h3>Q-3. Which video shows the appearance similar to the reference image?</h3>
+            <label><input type="checkbox" id="appearanceA" onchange="updateChoice(3, 'A')"> A (left video)</label>
+            <label><input type="checkbox" id="appearanceB" onchange="updateChoice(3, 'B')"> B (right video)</label>
+        </div>
+        
+        <div class="buttons">
+            <button id="prevBtn" class="nav-btn" onclick="changeVideo(-1)">◀ prev</button>
+            <button id="nextBtn" class="nav-btn" onclick="changeVideo(1)">next ▶</button>
+        </div>
+        
+        <div class="buttons">
+            <button onclick="checkCompletionAndShowResults()">📋 Show Results</button>
+        </div>
+        
+        <div id="resultsContainer" style="display: none; margin-top: 20px;"></div>
+        
+        <button id="submitSurveyBtn" style="display: none;" onclick="saveResponsesToGoogleSheets()">📤 Submit to Google Sheets</button>
+
+        <button id="homeBtn" class="home-btn" onclick="restartVideos()" style="display: none;">처음으로 ↺</button>
+    </div>
+</body>
+</html>

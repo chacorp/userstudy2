@@ -1,0 +1,402 @@
+{
+    "CE-W011_hap_1_005-reenact-W014_neu_1_006": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "CE-W011_hap_1_005-reenact-M009_neu_1_004": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "CE-W014_con_1_006-reenact-M009_neu_1_004": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "CE-W014_con_1_006-reenact-W011_neu_1_005": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "CE-M009_fea_1_004-reenact-W014_neu_1_006": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "CE-M009_fea_1_004-reenact-M003_neu_1_001": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "CE-M003_ang_1_001-reenact-W014_neu_1_006": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "CE-M003_ang_1_001-reenact-M009_neu_1_004": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-100-SEN-03-reenact-057-SEN-01": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-100-SEN-03-reenact-037-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-057-SEN-01-reenact-100-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-057-SEN-01-reenact-036-SEN-08": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-036-SEN-08-reenact-100-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-036-SEN-08-reenact-037-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-037-SEN-03-reenact-057-SEN-01": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-037-SEN-03-reenact-036-SEN-08": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "ED-W014_con_1_006-reenact-W011_neu_1_005": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-W014_con_1_006-reenact-M009_neu_1_004": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-M003_ang_1_001-reenact-W014_neu_1_006": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-M003_ang_1_001-reenact-M009_neu_1_004": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-M009_fea_1_004-reenact-W014_neu_1_006": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-M009_fea_1_004-reenact-M003_neu_1_001": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-W011_hap_1_005-reenact-W014_neu_1_006": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-W011_hap_1_005-reenact-M009_neu_1_004": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-057-SEN-01-reenact-100-SEN-03": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-057-SEN-01-reenact-036-SEN-08": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-036-SEN-08-reenact-100-SEN-03": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-036-SEN-08-reenact-037-SEN-03": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-100-SEN-03-reenact-057-SEN-01": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-100-SEN-03-reenact-037-SEN-03": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-037-SEN-03-reenact-057-SEN-01": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-037-SEN-03-reenact-036-SEN-08": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EB-W011_hap_1_005-reenact-W014_neu_1_006": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EB-W011_hap_1_005-reenact-M009_neu_1_004": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EB-M009_fea_1_004-reenact-M003_neu_1_001": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EB-M009_fea_1_004-reenact-W014_neu_1_006": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EB-W014_con_1_006-reenact-M009_neu_1_004": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EB-W014_con_1_006-reenact-W011_neu_1_005": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EB-M003_ang_1_001-reenact-M009_neu_1_004": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EB-M003_ang_1_001-reenact-W014_neu_1_006": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EC-057-SEN-01-reenact-100-SEN-03": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EC-057-SEN-01-reenact-036-SEN-08": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EC-036-SEN-08-reenact-037-SEN-03": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EC-036-SEN-08-reenact-100-SEN-03": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EC-037-SEN-03-reenact-057-SEN-01": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EC-037-SEN-03-reenact-036-SEN-08": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EC-100-SEN-03-reenact-057-SEN-01": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "EC-100-SEN-03-reenact-037-SEN-03": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "AE-M009_fea_1_004-reenact-M003_neu_1_001": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-M009_fea_1_004-reenact-W014_neu_1_006": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-W011_hap_1_005-reenact-W014_neu_1_006": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-W011_hap_1_005-reenact-M009_neu_1_004": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-W014_con_1_006-reenact-W011_neu_1_005": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-W014_con_1_006-reenact-M009_neu_1_004": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-M003_ang_1_001-reenact-W014_neu_1_006": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "AE-M003_ang_1_001-reenact-W011_neu_1_005": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "BE-036-SEN-08-reenact-100-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "BE-036-SEN-08-reenact-037-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "BE-100-SEN-03-reenact-057-SEN-01": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "BE-100-SEN-03-reenact-037-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "BE-057-SEN-01-reenact-100-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "BE-057-SEN-01-reenact-036-SEN-08": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "BE-037-SEN-03-reenact-057-SEN-01": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "BE-037-SEN-03-reenact-036-SEN-08": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "ED-057-SEN-01-audio-036-SEN-08": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "ED-057-SEN-01-audio-037-SEN-03": {
+      "motion": "A",
+      "sync": "A",
+      "appearance": "A"
+    },
+    "ED-036-SEN-08-audio-057-SEN-01": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "ED-036-SEN-08-audio-037-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "ED-100-SEN-03-audio-057-SEN-01": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "ED-100-SEN-03-audio-037-SEN-03": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "ED-037-SEN-03-audio-145-SEN-08": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "ED-037-SEN-03-audio-057-SEN-01": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "DE-W014_fea_1_006-audio-W011_fea_1_005": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "DE-W014_fea_1_006-audio-M003_ang_1_001": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "DE-M009_sur_1_004-audio-W014_hap_1_006": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "DE-M009_sur_1_004-audio-M003_ang_1_001": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "DE-M003_con_1_001-audio-W011_fea_1_005": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "DE-M003_con_1_001-audio-M009_sad_1_004": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "DE-W011_hap_1_005-audio-W014_hap_1_006": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    },
+    "DE-W011_hap_1_005-audio-W011_fea_1_005": {
+      "motion": "B",
+      "sync": "B",
+      "appearance": "B"
+    }
+  }
