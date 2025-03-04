@@ -56,10 +56,12 @@ async function initializeData() {
         }
     });
 
-    const genData = await loadCSV("videos.csv");
-    generatedVideos = [];
+    generatedVideos1 = [];
+    generatedVideos2 = [];
+    const genData1 = await loadCSV("videos1.csv");
+    const genData2 = await loadCSV("videos2.csv");
 
-    genData.forEach(video => {
+    genData1.forEach(video => {
         if (!video.title || !video["Embedded link"]) {
             return;
         }
@@ -82,10 +84,37 @@ async function initializeData() {
             userResponses[videoKey] = { motion: "none", sync: "none", appearance: "none" };
         }
 
-        generatedVideos.push({ title, mode, task, tgt, videoKey, generatedLink: embeddedLink, referenceTitle, referenceLink, referenceImage });
+        generatedVideos1.push({ title, mode, task, tgt, videoKey, generatedLink: embeddedLink, referenceTitle, referenceLink, referenceImage });
+    });
+    genData2.forEach(video => {
+        if (!video.title || !video["Embedded link"]) {
+            return;
+        }
+
+        const title = video.title.trim();
+        const mode = video.Mode.trim();
+        const task = video.task.trim();
+        const tgt = video.tgt.trim();
+        const videoKey = `${mode}-${title}-${task}-${tgt}`;
+
+        const embeddedLink = video["Embedded link"].trim();
+
+        let referenceTitle = findReferenceTitle(title);
+        let referenceLink = referenceVideos[referenceTitle] || "";
+        // let referenceImage = referenceImages[tgt] || ""; 
+        let referenceImage = (`${task}` === "reenact") ? referenceImages[tgt] : referenceImages[title];
+        console.log(`[INFO] ${task} tgt: ${tgt}: title ${title} -> ${referenceImages[tgt]} | `);
+        
+        if (!userResponses[videoKey]) {
+            userResponses[videoKey] = { motion: "none", sync: "none", appearance: "none" };
+        }
+
+        generatedVideos2.push({ title, mode, task, tgt, videoKey, generatedLink: embeddedLink, referenceTitle, referenceLink, referenceImage });
     });
 
-    shuffleArray(generatedVideos);
+    shuffleArray(generatedVideos1);
+    shuffleArray(generatedVideos2);
+    generatedVideos = [...generatedVideos1, ...generatedVideos2]
 
     if (generatedVideos.length > 0) {
         currentIndex = 0;
