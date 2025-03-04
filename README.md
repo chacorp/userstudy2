@@ -21,7 +21,8 @@
 
 7. Repeat this process untill you reach the end of the page!
 
-*Note: if you dont answer to all question, the page will not move to the next video.
+*Note: if you dont answer to all question, the page will not move to the next video. \
+** 🚨CAUTION🚨 if you refresh the webpage, you will need to start all over again..!!!! **
 
 
 ## How to send answer
