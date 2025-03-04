@@ -214,6 +214,25 @@ function resetCheckboxes() {
     document.getElementById("appearanceB").checked = false;
 }
 
+function cachedCheckboxes(videoKey) {
+    if (userResponses[videoKey]){
+        if (userResponses[videoKey].motion !== "none") {
+            var cache = userResponses[videoKey].motion
+            document.getElementById("motionA").checked = (cache === 'A');
+            document.getElementById("motionB").checked = (cache === 'B');
+        }
+        if (userResponses[videoKey].sync !== "none") {
+            var cache = userResponses[videoKey].sync
+            document.getElementById("syncA").checked = (cache === 'A');
+            document.getElementById("syncB").checked = (cache === 'B');
+        }
+        if (userResponses[videoKey].appearance !== "none") {
+            var cache = userResponses[videoKey].appearance
+            document.getElementById("appearanceA").checked = (cache === 'A');
+            document.getElementById("appearanceB").checked = (cache === 'B');
+        }
+    }
+}
 
 function restartVideos() {
     if (generatedVideos.length === 0) return;
@@ -268,6 +287,7 @@ function updateVideo() {
     if (homeBtn) homeBtn.style.display = currentIndex === generatedVideos.length - 1 ? "inline-block" : "none";
 
     resetCheckboxes();
+    cachedCheckboxes(videoKey);
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
