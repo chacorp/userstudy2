@@ -25,13 +25,13 @@ body {
 
 .video-container.reference {
     width: 100%;
-    max-width: 450px; /* Reference Video 1:1 비율 */
+    max-width: 300px; /* Reference Video 1:1 비율 */
     aspect-ratio: 1 / 1;
 }
 
 .video-container.generated {
     width: 100%;
-    max-width: 900px; /* Generated Video 2:1 비율 */
+    max-width: 600px; /* Generated Video 2:1 비율 */
     aspect-ratio: 2 / 1;
 }
 
@@ -45,14 +45,13 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center;
-    width: 60%; 
+    width: 100%;
     height: auto; 
     margin-top: 10px;
 }
 
 .image-container img {
-    /* max-width: 60%; 
-    height: auto;  */
+    max-width: 300px; /* Reference Video 1:1 비율 */
     display: block;
     margin: 10px auto;
 }
