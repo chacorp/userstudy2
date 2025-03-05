@@ -39,4 +39,6 @@ If you have answered questions for all 80 videos, follow the steps below.
 
     <img src="final button.png" width="200"/>
 
-3. Now your answer is copied to the clipboard. please send the copy to me..!
+3. Now your answer is copied to the clipboard. \
+Please post it in the [issues](https://github.com/chacorp/userstudy2/issues) tab! \
+Thank you!!! 
